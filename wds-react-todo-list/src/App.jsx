@@ -4,7 +4,6 @@ import { NewTodoForm } from "./components/NewTodoForm";
 import { TodoList } from "./components/TodoList";
 
 export default function App() {
-  const [newItem, setNewItem] = useState("");
   const [todoList, setTodoList] = useState([]);
 
   function addTodo(title) {
@@ -17,7 +16,8 @@ export default function App() {
     });
   }
   
-  function handleToggle(id, completed) { 
+  function handleToggle(id, completed) {
+    console.log("in App.jsx handleToggle");
     setTodoList(prevList => {
       return prevList.map(item => {
         if (item.id === id) {
