@@ -1,15 +1,21 @@
+import { TodoItem } from "./TodoItem";
+
 export function TodoList({ todoList, onToggle, onDelete }) {
-  return( 
-    <ul>
-      {todoList.map(item => (
-        <li key={item.id}>
-          <label>
-          <input type="checkbox" checked={item.completed} onChange={(e) => onToggle(item.id, e.target.checked)} />
-            {item.title}
-          </label>
-          <button className="btn btn-danger" onClick={() => onDelete(item.id)}>Delete</button>
-        </li>
-      ))}
+  return(
+    <ul className="list">
+      { todoList.map(item => {
+          console.log("IN LOOP: " + JSON.stringify(item));
+       return (
+          <TodoItem
+            completed={item.completed}
+            id={item.id}
+            title={item.title}
+            key={item.id}
+            toggleTodo={onToggle}
+            deleteTodo={onDelete}
+          />
+        )}
+      )}
     </ul>
   );
 }
