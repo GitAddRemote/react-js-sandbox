@@ -37,7 +37,7 @@ export default function App() {
   return( 
     <>
       <NewTodoForm onSubmit={addTodo} />
-      <h1>ToDo List</h1>
+      <h1>To Do List</h1>
       <TodoList todoList={todoList} onToggle={handleToggle} onDelete={handleDelete} />
     </>
   );
