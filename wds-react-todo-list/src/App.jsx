@@ -5,8 +5,8 @@ import { TodoList } from "./components/TodoList";
 
 export default function App() {
   const [todoList, setTodoList] = useState(
-    localStorage.getItem("todoList")
-      ? JSON.parse(localStorage.getItem("todoList"))
+    localStorage.getItem("TODO_LIST")
+      ? JSON.parse(localStorage.getItem("TODO_LIST"))
       : [] 
   );
 
