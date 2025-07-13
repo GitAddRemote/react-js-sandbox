@@ -4,7 +4,11 @@ import { NewTodoForm } from "./components/NewTodoForm";
 import { TodoList } from "./components/TodoList";
 
 export default function App() {
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(
+    localStorage.getItem("todoList")
+      ? JSON.parse(localStorage.getItem("todoList"))
+      : [] 
+  );
 
   function addTodo(title) {
 
