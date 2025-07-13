@@ -3,15 +3,16 @@ import { useEffect, useState } from "react";
 export function Alert({ message }) {
 
     const [alertDone, setAlertDone] = useState(false);
+    let timer;
 
     useEffect(() => {
         console.log("Starting Alert Timer!");
-        setTimeout(function () {
+        timer = setTimeout(function () {
             console.log("Timer Expired!");
             setAlertDone(true);
         }, 2000);
         
-        // return () => clearTimeout(timer); // Cleanup the timer on unmount
+        return () => clearTimeout(timer); // Cleanup the timer on unmount
     }, []);
 
     return (
