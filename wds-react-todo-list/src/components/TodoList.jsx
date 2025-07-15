@@ -4,7 +4,6 @@ export function TodoList({ todoList, onToggle, onDelete }) {
   return(
     <ul className="list">
       { todoList.map(item => {
-          console.log("IN LOOP: " + JSON.stringify(item));
        return (
           <TodoItem
             completed={item.completed}

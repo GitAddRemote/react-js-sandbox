@@ -41,7 +41,6 @@ export default function App() {
   }
   
   function handleToggle(id, completed) {
-    console.log("in App.jsx handleToggle");
     setTodoList(prevList => {
       return prevList.map(item => {
         if (item.id === id) {
