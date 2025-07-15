@@ -15,7 +15,7 @@ test(`shows initial message then "Time's up!" after ${TIMER_DURATION_MS / 1000} 
 
   // fast‑forward 2 seconds
   act(() => {
-    jest.advanceTimersByTime(2000)
+    jest.advanceTimersByTime(TIMER_DURATION_MS)
   })
 
   // after timer
