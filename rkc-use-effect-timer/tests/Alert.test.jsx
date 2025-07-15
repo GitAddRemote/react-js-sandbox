@@ -1,7 +1,8 @@
 import { render, screen, act } from '@testing-library/react'
 import { Alert } from '../src/components/Alert'
+const TIMER_DURATION_MS = 2000;
 
-test("shows initial message then \"Time's up!\" after 2 seconds", () => {
+test(`shows initial message then "Time's up!" after ${TIMER_DURATION_MS / 1000} seconds`, () => {
   render(<Alert />)
 
   // initial state
