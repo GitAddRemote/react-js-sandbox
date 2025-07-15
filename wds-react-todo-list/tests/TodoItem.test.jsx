@@ -23,6 +23,6 @@ test('checkbox toggles and calls toggleTodo, delete button calls deleteTodo', as
   await userEvent.click(checkbox)
   expect(toggleTodo).toHaveBeenCalledWith('abc', true)
 
-await userEvent.click(deleteBtn)
+  await userEvent.click(deleteBtn)
   expect(deleteTodo).toHaveBeenCalledWith('abc')
 })
