@@ -15,7 +15,8 @@ export default function App() {
       ? JSON.parse(storedLocalStorage)
       : [];
     } catch (e) {
-      // If JSON.parse fails, return an empty array
+      // If JSON.parse fails, remove the corrupted entry and return an empty array
+      localStorage.removeItem(TODO_LIST_KEY);
       return [];
     }
   });
