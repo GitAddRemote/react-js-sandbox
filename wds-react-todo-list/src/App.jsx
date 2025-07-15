@@ -2,6 +2,7 @@ import "./styles.css";
 import { useState } from "react";
 import { NewTodoForm } from "./components/NewTodoForm";
 import { TodoList } from "./components/TodoList";
+import { useEffect } from "react";
 
 export default function App() {
   const [todoList, setTodoList] = useState(() => {
@@ -10,6 +11,12 @@ export default function App() {
       ? JSON.parse(storedLocalStorage)
       : [];
   });
+
+  // save current todoList to localStorage
+  useEffect(() => {
+    console.log("in App.jsx useEffect");
+    localStorage.setItem("TODO_LIST", JSON.stringify(todoList));
+  }, [todoList]);
 
   function addTodo(title) {
 
