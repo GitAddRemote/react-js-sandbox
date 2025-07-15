@@ -23,7 +23,11 @@ export default function App() {
 
   // save current todoList to localStorage
   useEffect(() => {
-    localStorage.setItem(TODO_LIST_KEY, JSON.stringify(todoList));
+    try {
+      localStorage.setItem(TODO_LIST_KEY, JSON.stringify(todoList));
+    } catch (error) {
+      console.error("Failed to save todo list to localStorage:", error);
+    }
   }, [todoList]);
 
   function addTodo(title) {
