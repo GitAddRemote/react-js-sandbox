@@ -20,7 +20,7 @@ test('checkbox toggles and calls toggleTodo, delete button calls deleteTodo', as
   const checkbox = screen.getByRole('checkbox')
   const deleteBtn = screen.getByRole('button', { name: /delete/i })
 
-await userEvent.click(checkbox)
+  await userEvent.click(checkbox)
   expect(toggleTodo).toHaveBeenCalledWith('abc', true)
 
 await userEvent.click(deleteBtn)
