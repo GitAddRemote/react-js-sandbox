@@ -2,6 +2,8 @@ import { render, screen, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from '../src/App'
 
+const TIMER_DURATION_MS = 2000;
+
 test('toggles the Alert on and off and respects the timer', async () => {
   render(<App />)
 
@@ -23,7 +25,7 @@ test('toggles the Alert on and off and respects the timer', async () => {
 
   // fast‑forward the 2 s timeout
   // (advanceTimers above will auto‑advance, but we still need act for React)
-  act(() => jest.advanceTimersByTime(ALERT_TIMEOUT_MS))
+  act(() => jest.advanceTimersByTime(TIMER_DURATION_MS))
 
   // now the expired message shows
   expect(
