@@ -22,7 +22,6 @@ export default function App() {
 
   // save current todoList to localStorage
   useEffect(() => {
-    console.log("in App.jsx useEffect");
     localStorage.setItem(TODO_LIST_KEY, JSON.stringify(todoList));
   }, [todoList]);
 
