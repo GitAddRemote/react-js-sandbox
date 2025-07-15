@@ -1,7 +1,9 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+
 import { TodoItem } from '../src/components/TodoItem'
 
-test('checkbox toggles and calls toggleTodo, delete button calls deleteTodo', () => {
+test('checkbox toggles and calls toggleTodo, delete button calls deleteTodo', async () => {
   const toggleTodo = jest.fn()
   const deleteTodo = jest.fn()
 
@@ -18,9 +20,9 @@ test('checkbox toggles and calls toggleTodo, delete button calls deleteTodo', ()
   const checkbox = screen.getByRole('checkbox')
   const deleteBtn = screen.getByRole('button', { name: /delete/i })
 
-  fireEvent.click(checkbox)
+await userEvent.click(checkbox)
   expect(toggleTodo).toHaveBeenCalledWith('abc', true)
 
-  fireEvent.click(deleteBtn)
+await userEvent.click(deleteBtn)
   expect(deleteTodo).toHaveBeenCalledWith('abc')
 })
