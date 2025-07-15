@@ -5,8 +5,11 @@ import { TodoList } from "./components/TodoList";
 import { useEffect } from "react";
 
 export default function App() {
+  
+  const TODO_LIST_KEY = "TODO_LIST";
+
   const [todoList, setTodoList] = useState(() => {
-    const storedLocalStorage = localStorage.getItem("TODO_LIST");
+    const storedLocalStorage = localStorage.getItem(TODO_LIST_KEY);
     try {
       return storedLocalStorage
       ? JSON.parse(storedLocalStorage)
@@ -20,7 +23,7 @@ export default function App() {
   // save current todoList to localStorage
   useEffect(() => {
     console.log("in App.jsx useEffect");
-    localStorage.setItem("TODO_LIST", JSON.stringify(todoList));
+    localStorage.setItem(TODO_LIST_KEY, JSON.stringify(todoList));
   }, [todoList]);
 
   function addTodo(title) {
