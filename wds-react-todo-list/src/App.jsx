@@ -7,9 +7,14 @@ import { useEffect } from "react";
 export default function App() {
   const [todoList, setTodoList] = useState(() => {
     const storedLocalStorage = localStorage.getItem("TODO_LIST");
-    return storedLocalStorage
+    try {
+      return storedLocalStorage
       ? JSON.parse(storedLocalStorage)
       : [];
+    } catch (e) {
+      // If JSON.parse fails, return an empty array
+      return [];
+    }
   });
 
   // save current todoList to localStorage
