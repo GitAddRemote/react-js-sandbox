@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom'
 
-beforeAll(() => {
+beforeEach(() => {
   jest.useFakeTimers();
 });
 
-afterAll(() => {
+afterEach(() => {
   jest.useRealTimers();
 });
