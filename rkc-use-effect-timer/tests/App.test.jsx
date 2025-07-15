@@ -23,7 +23,7 @@ test('toggles the Alert on and off and respects the timer', async () => {
 
   // fast‑forward the 2 s timeout
   // (advanceTimers above will auto‑advance, but we still need act for React)
-  act(() => jest.advanceTimersByTime(2000))
+  act(() => jest.advanceTimersByTime(ALERT_TIMEOUT_MS))
 
   // now the expired message shows
   expect(
