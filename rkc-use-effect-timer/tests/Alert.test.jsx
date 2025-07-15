@@ -1,14 +1,6 @@
 import { render, screen, act } from '@testing-library/react'
 import { Alert } from '../src/components/Alert'
 
-beforeAll(() => {
-  jest.useFakeTimers()
-})
-
-afterAll(() => {
-  jest.useRealTimers()
-})
-
 test("shows initial message then \"Time's up!\" after 2 seconds", () => {
   render(<Alert />)
 
