@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LessonSideBar } from './components/LessonSideBar'
+import { SideBar } from './components/SideBar'
 import './styles.css'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
           <h1>JavaScript Code Lab</h1>
         </header>
 
-        <LessonSideBar />
+        <SideBar />
 
         <main class="main-content">
           <section class="code-editor">
