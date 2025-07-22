@@ -6,15 +6,15 @@ function App() {
 
   return (
     <>
-      <div class="layout">
-        <header class="site-header">
+      <div className="layout">
+        <header className="site-header">
           <h1>JavaScript Code Lab</h1>
         </header>
 
         <SideBar />
 
-        <main class="main-content">
-          <section class="code-editor">
+        <main className="main-content">
+          <section className="code-editor">
             <textarea placeholder="// Start coding JavaScript here..."></textarea>
           </section>
         </main>

@@ -1,8 +1,9 @@
 import { LessonList } from './LessonList'
+import '../styles.css'
 
-export function LessonSideBar() {
+export function SideBar() {
     return (
-        <nav classname="sidebar">
+        <nav className="sidebar">
             <LessonList />
         </nav>
     )
