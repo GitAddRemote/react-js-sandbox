@@ -1,13 +1,13 @@
 import { LessonItem } from './LessonItem'
 
-export function LessonList() {
+export function LessonList(props) {
+    console.log('LL: LessonList component loaded: ', props.lessonList);
     return (
         <ul>
-            <LessonItem title="Lesson 1" subTitle="Variables" url="#" />
-            <LessonItem title="Lesson 2" subTitle="Functions" url="#" />
-            <LessonItem title="Lesson 3" subTitle="Objects" url="#" />
-            <LessonItem title="Lesson 4" subTitle="Arrays" url="#" />
-            <LessonItem title="Lesson 5" subTitle="DOM Manipulation" url="#" />
+            { props.lessonList.map(lesson => (
+                <LessonItem key={lesson.id} title={lesson.title} subTitle={lesson.subTitle} url={`/lessons/${lesson.id}`} description={lesson.description} />
+            ))}
         </ul>
+
     )
 }

@@ -1,10 +1,10 @@
 import { LessonList } from './LessonList'
 import '../styles.css'
 
-export function SideBar() {
+export function SideBar(props) {
     return (
         <nav className="sidebar">
-            <LessonList />
+            <LessonList lessonList={props.lessonList} />
         </nav>
     )
 }
