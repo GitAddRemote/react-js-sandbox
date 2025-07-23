@@ -12,7 +12,6 @@ function App() {
   ]
 
   return (
-    <>
       <div className="layout">
         <header className="site-header">
           <h1>JavaScript Code Lab</h1>
