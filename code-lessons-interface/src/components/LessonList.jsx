@@ -1,7 +1,6 @@
 import { LessonItem } from './LessonItem'
 
 export function LessonList(props) {
-    console.log('LL: LessonList component loaded: ', props.lessonList);
     return (
         <ul>
             { props.lessonList.map(lesson => (

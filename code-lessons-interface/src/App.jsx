@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { SideBar } from './components/SideBar'
 import './styles.css'
 
@@ -18,7 +17,6 @@ function App() {
         <header className="site-header">
           <h1>JavaScript Code Lab</h1>
         </header>
-        {/* {console.log('LL: LessonList component loaded: ', lessonList)} */}
 
         <SideBar lessonList={lessonList} />
 
