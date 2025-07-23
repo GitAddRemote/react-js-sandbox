@@ -1,4 +1,4 @@
-import { LessonList } from './LessonList'
+import { LessonList } from './Lesson/LessonList'
 import '../styles.css'
 
 export function SideBar(props) {
