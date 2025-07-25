@@ -1,18 +1,25 @@
 import { useState, useEffect } from 'react'
-import { SideBar } from './components/SideBar'
+import { CourseDashboard } from './components/Course/CourseDashboard'
 import './styles.css'
+import { Lesson } from './components/Lesson/Lesson';
 
 function App() {
 
   const SELECTED_COURSE_KEY = 'selectedCourse';
 
   const [selectedCourse, setSelectedCourse] = useState(() => {
+    console.log(`useState: initializing selectedCourse`);
     const savedCourse = localStorage.getItem(SELECTED_COURSE_KEY);
-    return savedCourse ? JSON.parse(savedCourse) : [];
+    return savedCourse ? savedCourse : null;
   });
 
   useEffect(() => {
-    localStorage.setItem(SELECTED_COURSE_KEY, JSON.stringify(selectedCourse));
+    console.log(`useEffect: selectedCourse changed to ${selectedCourse}`);
+    if(selectedCourse) {
+      localStorage.setItem(SELECTED_COURSE_KEY, JSON.stringify(selectedCourse));
+    } else {
+      localStorage.removeItem(SELECTED_COURSE_KEY);
+    }
   }, [selectedCourse]);
 
   const courseList = [
@@ -23,36 +30,23 @@ function App() {
     { id: 5, title: 'State Management', description: 'Explore state management solutions in React, including Context API and Redux.' }
   ];
 
-  /** This would normally exist in a database on the backend */
-  const javaScriptBasicsLessonList = [
-    { id: 1, courseId: 1, title: 'Intro', subTitle:'Intro to JavaScript', url: '#', description: 'Learn the basics of JavaScript, including variables, data types, and operators.', code: '\\ These are example variables \n var exampleVar = 5; \n let exampleLet = 10; \n const exampleConst = 15;' },
-    { id: 2, courseId: 1, title: 'Control Structures', subTitle:'Control Structures in JavaScript', url: '#', description: 'Understand how to use if statements, loops, and switch cases to control the flow of your code.', code: 'if (condition) { \n  // code to execute if condition is true \n} else { \n  // code to execute if condition is false \n}' },
-    { id: 3, courseId: 1, title: 'Functions', subTitle:'JavaScript Functions', url: '#', description: 'Learn how to define and call functions, including arrow functions and higher-order functions.', code: 'function exampleFunction(param) { \n  return param * 2; \n}' },
-    { id: 4, courseId: 1, title: 'Objects and Arrays', subTitle:'Working with Objects and Arrays', url: '#', description: 'Explore how to work with objects and arrays in JavaScript, including methods and properties.', code: 'const exampleArray = [1, 2, 3]; \nconst exampleObject = { key: "value" };' },
-    { id: 5, courseId: 1, title: 'Asynchronous JavaScript', subTitle:'Asynchronous JavaScript', url: '#', description: 'Get introduced to asynchronous programming with callbacks, promises, and async/await.', code: 'async function fetchData() { \n  const response = await fetch(url); \n  const data = await response.json(); \n}' }
-  ];
-
-  function selectCourse(courseId) {
-    const course = courseList.find(c => c.id === courseId);
-    if (course) {
-      setSelectedCourse(course);
-    }
-  } 
-
   return (
       <div className="layout">
         <header className="site-header">
-          <h1>JavaScript Code Lab</h1>
+          <h1><a href="/" onClick={(e) => { e.preventDefault(); setSelectedCourse(null); }}>DevTronic Labs</a></h1>
         </header>
 
-        <SideBar lessonList={javaScriptBasicsLessonList} />
+        { console.log(`SELECTED: ${selectedCourse}`) }
+        { selectedCourse ? (
+          <Lesson course={selectedCourse} onClose={() => setSelectedCourse(null)} />
+        ) : (
+          <CourseDashboard courseList={courseList} />
+        )}
 
-        <main className="main-content">
-          <section className="code-editor">
-            <textarea placeholder="// Start coding JavaScript here..."></textarea>
-          </section>
-        </main>
-      </div>
+        <footer className="site-footer">
+          <p>&copy; 2025 DevTronic Labs</p>
+        </footer>        
+      </div>      
   )
 }
 

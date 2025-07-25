@@ -10,9 +10,11 @@ body {
   background-color: #f8f9fa;
   color: #212529;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Layout wrapper */
+/* Layout structure */
 .layout {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -23,57 +25,43 @@ body {
 .site-header {
   background-color: #DB5242;
   color: #FFFFFF;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   text-align: center;
-  font-size: 1.75rem;
-  font-weight: bold;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Dashboard main area */
+/* Main content */
 .dashboard {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 3rem 1rem;
+  padding: 2rem;
+  background-color: #f8f9fa;
 }
 
-/* Course content centered with max width */
-.course-container {
-  width: 100%;
-  max-width: 960px; /* ~60% of a 1600px screen */
-}
-
-/* Grid with 2 large cards per row */
 .course-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
-/* Course card styles */
+/* Individual course card */
 .course-card {
-  aspect-ratio: 1 / 1; /* ⬅️ Makes the card a perfect square */
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #ffffff;
   border: 2px solid #DB5242;
-  border-radius: 32px; /* Large rounding without making it a circle */
-  font-size: 1.5rem;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.25rem;
   font-weight: bold;
   color: #DB5242;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .course-card:hover {
   background-color: #DB5242;
   color: #ffffff;
-  transform: translateY(-6px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 /* Footer */
